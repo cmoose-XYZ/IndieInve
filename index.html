@@ -4,77 +4,54 @@
 
       <title>IndieInve - The Indie's Inventory Management, Made Simple</title>
 
-      <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+      <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons|Space+Mono' rel="stylesheet">
       <link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet">
 
-      <style type="text/css">
-         
-         .supply-item {
-
-         }
-
-         .supply-unit-panel {
-
-            border: 2px solid #CCCCCC;
-
-            background-color: #D9D9D9;
-
-         }
-
-         .supply-main-panel {
-
-            border: 2px solid #E6E6E6;
-
-            background-color: #F3F3F3;
-
-         }
-         .supply-increase-button {
-
-         }
-         .supply-decrease-button {
-            
-         }
-
-         .supply-settings-panel {
-
-            border: 2px solid #CCCCCC;
-
-            background-color: #D9D9D9;
-            
-         }
-
-      </style>
+      <link rel="stylesheet" type="text/css" href="style.css">
 
    </head>
 
    <body>
 
       <div id="app">
-         <v-container fluid>
+         <v-container fluid grid-list-xl>
             
-            <v-layout row wrap class="supply-item">
-               
-               <v-flex xs2 class="supply-unit-panel">0<br>units</v-flex>
-               <v-flex xs class="supply-main-panel">
-                  <v-layout row wrap>
-                     <v-flex xs8>
-                        <v-layout row wrap>
-                           <v-flex xs12>PRODUCT NAME</v-flex>
-                           <v-flex xs12>used in:</v-flex>
-                           <v-flex xs12>item, item, item</v-flex>
-                           <v-flex xs12>get from:</v-flex>
-                           <v-flex xs12>http://www.store.link/</v-flex>
-                        </v-layout>
-                     </v-flex>
-                     <v-flex xs4>
-                        <v-layout row wrap>
-                           <v-flex xs12 class="supply-increase-button">+</v-flex>
-                           <v-flex xs12 class="supply-decrease-button">-</v-flex>
-                        </v-layout>
-                     </v-flex>
-                  </v-layout>
+            <v-layout row wrap class="supply">
+
+               <!-- UNIT PANEL -->
+               <v-flex xs2 style="display: flex;">
+                  <v-card class="supply-units">
+                     <strong>999+</strong><br><em>units</em>
+                  </v-card>
                </v-flex>
-               <v-flex xs2 class="supply-settings-panel">...</v-flex>
+
+               <!-- SUPPLY PANEL -->
+               <v-flex xs9>
+                  <v-card class="supply-panel">
+                     <v-layout row wrap>
+                        <v-flex xs10 class="supply-name">PRODUCT NAME<br>&nbsp;</v-flex>
+                        <v-flex xs2 class="supply-increase">+</v-flex>
+                     </v-layout>
+
+                     <v-layout row wrap>
+                        <v-flex xs10 class="supply-info">
+                           used in:<br>item, item, item
+                           <br>
+                           get from:<br>https://www.shop.link/item
+                        </v-flex>
+                        <v-flex xs2 class="supply-decrease">-</v-flex>
+                     </v-layout>
+                  </v-card>
+               </v-flex>
+
+               <!-- SETTINGS PANEL -->
+               <v-flex xs1 style="display: flex;">
+                  <v-card style="width: 100%;" class="supply-settings">
+                     <br>
+                     &nbsp;<v-icon x-large>reorder</v-icon>&nbsp;&nbsp;
+                     <br>
+                  </v-card>
+               </v-flex>
 
             </v-layout>
 
@@ -84,13 +61,7 @@
       <script src="https://unpkg.com/vue/dist/vue.js"></script>
       <script src="https://unpkg.com/vuetify/dist/vuetify.js"></script>
 
-      <script>
-
-         new Vue({
-            el: '#app'
-         })
-
-      </script>
+      <script src="script.js"></script>
 
    </body>
 </html>
