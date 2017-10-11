@@ -1,5 +1,5 @@
 Vue.component("indinv-supply", {
-   props: [],
+   props: ["name", "goods", "source", "amnt", "measurement"],
 
    template: `
       <v-layout row wrap class="supply">
@@ -7,7 +7,7 @@ Vue.component("indinv-supply", {
          <!-- UNIT PANEL -->
          <v-flex xs2 style="display: flex;">
             <v-card class="supply-units">
-               <strong>999+</strong><br><em>units</em>
+               <p v-on:click="setAmount"><strong>{{amount}}</strong><br><em>{{measurement}}</em></p>
             </v-card>
          </v-flex>
 
@@ -15,17 +15,17 @@ Vue.component("indinv-supply", {
          <v-flex xs9>
             <v-card class="supply-panel">
                <v-layout row wrap>
-                  <v-flex xs10 class="supply-name">PRODUCT NAME<br>&nbsp;</v-flex>
-                  <v-flex xs2 class="supply-increase">+</v-flex>
+                  <v-flex xs10 class="supply-name">{{name}}</v-flex>
+                  <v-flex xs2 class="supply-increase" v-on:click="increaseAmount">+</v-flex>
                </v-layout>
 
                <v-layout row wrap>
                   <v-flex xs10 class="supply-info">
-                     used in:<br>item, item, item
+                     used in:<br>{{goods}}
                      <br>
-                     get from:<br>https://www.shop.link/item
+                     get from:<br>{{source}}
                   </v-flex>
-                  <v-flex xs2 class="supply-decrease">-</v-flex>
+                  <v-flex xs2 class="supply-decrease" v-on:click="decreaseAmount">-</v-flex>
                </v-layout>
             </v-card>
          </v-flex>
@@ -40,11 +40,43 @@ Vue.component("indinv-supply", {
          </v-flex>
 
       </v-layout>
+   `,
+
+   data: function() {
+      return {
+         amount: this.amnt
+      }
+   },
+
+   methods: {
+      setAmount: function() {
+         let amnt = prompt("Enter How Much Of This Supply You Have:");
+         if( amnt != false && amnt != null && amnt != undefined ) {
+            if( typeof(amnt) != "number" ) alert("Supply Amount MUST Be A Number\n\n[you entered: " + amnt + "]");
+            else this.amount = amnt;
+         }
+      },
+      increaseAmount: function() { this.amount++; },
+      decreaseAmount: function() { this.amount--; }
+   }
+})
+
+Vue.component("indinv-header", {
+   template: `
+      <v-container fluid grid-list-xs>
+         <v-layout row id="header">
+            <v-flex xs4>SUPPLIES |</v-flex>
+            <v-flex xs3>GOODS |</v-flex>
+            <v-flex xs4>HISTORY</v-flex>
+            <v-flex xs1>|?</v-flex>
+         </v-layout>
+         <br><br><br><br><br><br><br><br>
+      </v-container>
    `
 })
 
 new Vue({
 
-   el: '#app'
+   el: '#app',
    
 })
