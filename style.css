@@ -1,0 +1,102 @@
+* {
+   font-family: 'Space Mono', monospace;
+}
+
+body {
+   background-color: #E6A1AA;
+}
+
+.card {
+   background-color: #F3F3F3;
+}
+
+#header {
+   background-color: #BF8F96;
+
+   padding: 30px;
+
+   font-size: 3.75em;
+   text-align: center;
+
+   box-shadow: 0px 0px 15px 0px #000;
+
+   position: fixed;
+
+   width: 100%;
+
+   z-index: 15;
+}
+
+.supply-units {
+   padding: 0.25em;
+
+   font-size: 3.4em;
+   text-align: center;
+   vertical-align: middle;
+
+   top: 0;
+   bottom: 0;
+
+   margin: auto;
+   margin-right: -25px;
+}
+
+.supply-panel {
+   padding: 1.5em;
+}
+
+.supply-name {
+   font-size: 5em;
+   font-weight: bolder;
+}
+
+.supply-info {
+   font-size: 2.8em;
+}
+
+.supply-increase, .supply-decrease {
+   height: 255px;
+
+   color: #FFF;
+   font-size: 6em;
+   text-align: center;
+   line-height: 185px;
+}
+.supply-increase {
+   background-color: #57CD70;
+}
+.supply-decrease {
+   background-color: #D95650;
+}
+
+.supply-settings {
+   padding: 0.25em;
+
+   font-size: 1em;
+   text-align: center;
+   vertical-align: middle;
+
+   top: 0;
+   bottom: 0;
+
+   margin: auto;
+   margin-left: -25px;
+}
+
+#new-supply-button {
+   width: 15em;
+   height: 15em;
+
+   border-radius: 15em;
+   border: 2em solid #5B93E6;
+
+   margin: auto;
+   margin-top: 6em;
+}
+
+#new-supply-button p {
+   color: #5B93E6;
+   font-size: 15em;
+   text-align: center;
+   line-height: 0.675em;
+}

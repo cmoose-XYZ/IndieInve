@@ -4,79 +4,21 @@
 
       <title>IndieInve - The Indie's Inventory Management, Made Simple</title>
 
-      <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+      <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons|Space+Mono' rel="stylesheet">
       <link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet">
 
-      <style type="text/css">
-         
-         .supply-item {
-
-         }
-
-         .supply-unit-panel {
-
-            border: 2px solid #CCCCCC;
-
-            background-color: #D9D9D9;
-
-         }
-
-         .supply-main-panel {
-
-            border: 2px solid #E6E6E6;
-
-            background-color: #F3F3F3;
-
-         }
-         .supply-increase-button {
-
-         }
-         .supply-decrease-button {
-            
-         }
-
-         .supply-settings-panel {
-
-            border: 2px solid #CCCCCC;
-
-            background-color: #D9D9D9;
-            
-         }
-
-      </style>
+      <link rel="stylesheet" type="text/css" href="style.css">
 
    </head>
 
    <body>
 
       <div id="app">
-         <v-container fluid>
-            
-            <v-layout row wrap class="supply-item">
-               
-               <v-flex xs2 class="supply-unit-panel">0<br>units</v-flex>
-               <v-flex xs class="supply-main-panel">
-                  <v-layout row wrap>
-                     <v-flex xs8>
-                        <v-layout row wrap>
-                           <v-flex xs12>PRODUCT NAME</v-flex>
-                           <v-flex xs12>used in:</v-flex>
-                           <v-flex xs12>item, item, item</v-flex>
-                           <v-flex xs12>get from:</v-flex>
-                           <v-flex xs12>http://www.store.link/</v-flex>
-                        </v-layout>
-                     </v-flex>
-                     <v-flex xs4>
-                        <v-layout row wrap>
-                           <v-flex xs12 class="supply-increase-button">+</v-flex>
-                           <v-flex xs12 class="supply-decrease-button">-</v-flex>
-                        </v-layout>
-                     </v-flex>
-                  </v-layout>
-               </v-flex>
-               <v-flex xs2 class="supply-settings-panel">...</v-flex>
+         <indinv-header></indinv-header>
 
-            </v-layout>
+         <v-container fluid grid-list-xl>
+            
+            <indinv-supply name="SUPPLY NAME (ex. STRING)" goods="item #1, item #2, item #3" source="https://shop.link/item1/" amnt="999+" measurement="units"></indinv-supply>
 
          </v-container>
       </div>
@@ -84,13 +26,7 @@
       <script src="https://unpkg.com/vue/dist/vue.js"></script>
       <script src="https://unpkg.com/vuetify/dist/vuetify.js"></script>
 
-      <script>
-
-         new Vue({
-            el: '#app'
-         })
-
-      </script>
+      <script src="script.js"></script>
 
    </body>
 </html>
