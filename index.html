@@ -1,32 +1,67 @@
 <!DOCTYPE html>
 <html>
-   <head>
+<head>
+   <title>IndInv - CSS-GRID-REDESIGN-PROPOSITION</title>
 
-      <title>IndieInve - The Indie's Inventory Management, Made Simple</title>
+   <link href='https://fonts.googleapis.com/css?family=Space+Mono' rel="stylesheet">
 
-      <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons|Space+Mono' rel="stylesheet">
-      <link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet">
+   <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
 
-      <link rel="stylesheet" type="text/css" href="style.css">
+   <div class="main-grid">
+      
+      <header>
+         <nav class="header-nav">
+            <a href="#" onclick="POPULATE();">Supplies</a>
+            <a href="#">Goods</a>
+            <a href="#">History</a>
+            <a href="#">?</a>
+         </nav>
+      </header>
 
-   </head>
+      <div style="margin-top: 2.25em;"></div>
 
-   <body>
+      <main class="body">
 
-      <div id="app">
-         <indinv-header></indinv-header>
 
-         <v-container fluid grid-list-xl>
-            
-            <indinv-supply name="SUPPLY NAME (ex. STRING)" goods="item #1, item #2, item #3" source="https://shop.link/item1/" amnt="999+" measurement="units"></indinv-supply>
 
-         </v-container>
-      </div>
 
-      <script src="https://unpkg.com/vue/dist/vue.js"></script>
-      <script src="https://unpkg.com/vuetify/dist/vuetify.js"></script>
+      </main>
 
-      <script src="script.js"></script>
+      <footer class="footer"></footer>
 
-   </body>
+   </div>
+
+</body>
+
+   <script type="text/javascript">
+      
+      function POPULATE() {
+          document.getElementsByClassName('body')[0].innerHTML = '';
+          
+          let amnt = Math.floor(Math.random()*100);
+
+          for (var i = 0; i < amnt; i++) {
+
+             document.getElementsByClassName('body')[0].innerHTML += `
+                <div class="supply-item">
+                   <div class="supply-amount"><strong>`+Math.floor(Math.random()*1000)+`</strong><br><em>units</em></div>
+                   <div class="supply-info">
+                      <h1 class="supply-name">SUPPLY NAME #`+(i+1)+`<br>&nbsp;</h1>
+                      <p class="supply-use-tag">used in:</p>
+                      <p class="supply-use-list"><em>item #1, item #2, item #3</em></p>
+                      <p class="supply-source-tag">get from:</p>
+                      <p class="supply-source-link"><em>https://shop.link/item/</em></p>
+                   </div>
+                   <div class="amount-button-increase"><p>+</p></div>
+                   <div class="amount-button-decrease"><p>-</p></div>
+                   <div class="supply-settings">></div>
+                </div>
+             `;
+          }
+      }
+
+   </script>
+
 </html>

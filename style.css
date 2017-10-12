@@ -1,102 +1,177 @@
-* {
+body {
+   margin: 0;
+
    font-family: 'Space Mono', monospace;
 }
 
-body {
-   background-color: #E6A1AA;
-}
-
-.card {
-   background-color: #F3F3F3;
-}
-
-#header {
-   background-color: #BF8F96;
-
-   padding: 30px;
-
-   font-size: 3.75em;
-   text-align: center;
-
-   box-shadow: 0px 0px 15px 0px #000;
-
+header {
    position: fixed;
-
    width: 100%;
 
    z-index: 15;
 }
 
-.supply-units {
-   padding: 0.25em;
+.main-grid {
+   display: grid;
 
-   font-size: 3.4em;
-   text-align: center;
-   vertical-align: middle;
-
-   top: 0;
-   bottom: 0;
-
-   margin: auto;
-   margin-right: -25px;
+   grid-template-columns: 1fr;
+   grid-template-rows: 1fr auto;
 }
 
-.supply-panel {
-   padding: 1.5em;
-}
+.header-nav {
+   display: grid;
 
-.supply-name {
-   font-size: 5em;
+   grid-template-columns: 2fr 2fr 2fr 1fr;
+   grid-template-rows: 1fr;
+
+   background-color: #333;
+}
+.header-nav a {
+   padding: 0.75em;
+
+   color: #efefef;
+   text-decoration: none;
    font-weight: bolder;
+   text-align: center;
+}
+
+
+.body {
+   display: grid;
+
+   grid-template-columns: 1fr;
+   grid-template-rows: auto;
+
+   padding: 0.5em;
+}
+
+
+.supply-item {
+   display: grid;
+
+   grid-template-columns: 2fr 9fr 2fr 1fr;
+   grid-template-rows: 1fr 1fr;
+   grid-template-areas: 
+      "amount info increase-button settings"
+      "amount info decrease-button settings"
+   ;
+
+   margin-top: 1em;
+}
+
+.supply-amount {
+   grid-area: amount;
+
+   border: 1px solid gray;
+   border-top-left-radius: 6px;
+   border-bottom-left-radius: 6px;
+
+   align-self: center;
+
+   padding: 0.5em;
+
+   text-align: center;
+   font-size: 0.9em;
+
+   margin-right: -0.15em;
+
+   box-shadow: -1px 0px 1px 0px #8C8C8C;
 }
 
 .supply-info {
-   font-size: 2.8em;
+   grid-area: info;
+
+   border-top: 1px solid black;
+   border-left: 1px solid black;
+   border-bottom: 1px solid black;
+   border-top-left-radius: 3px;
+   border-bottom-left-radius: 3px;
+
+   padding: 0.3em;
+
+   z-index: 10;
+
+   background-color: #fff;
+
+   box-shadow: 0px 1px 3px 0px #808080;
 }
 
-.supply-increase, .supply-decrease {
-   height: 255px;
+.supply-name {
+   font-size: 1.25em;
+   line-height: 1.15em;
 
-   color: #FFF;
-   font-size: 6em;
-   text-align: center;
-   line-height: 185px;
+   margin-top: 0;
+   margin-bottom: -0.25em;
 }
-.supply-increase {
-   background-color: #57CD70;
+
+.supply-use-tag, .supply-source-tag {
+   font-size: 0.6em;
+
 }
-.supply-decrease {
-   background-color: #D95650;
+
+.supply-use-list {
+   font-size: 0.75em;
+   margin-top: -1em;
+   margin-bottom: -0.5em;
+}
+
+.supply-source-link {
+   font-size: 0.75em;
+   margin-top: -1em;
+   margin-bottom: -0.25em;
+}
+
+.amount-button-increase {
+   grid-area: increase-button;
+
+   display: grid;
+
+   border: 1px solid black;
+   border-top-right-radius: 3px;
+
+   z-index: 10;
+
+   background-color: #2ecc71;
+
+   box-shadow: 1px 2px 3px -1px #000;
+}
+.amount-button-increase p {
+   justify-self: center;
+   align-self: center;
+}
+
+.amount-button-decrease {
+   grid-area: decrease-button;
+
+   display: grid;
+
+   border: 1px solid black;
+   border-bottom-right-radius: 3px;
+
+   z-index: 10;
+
+   background-color: #fe4a49;
+
+   box-shadow: 1px 1px 3px -1px #000;
+}
+.amount-button-decrease p {
+   justify-self: center;
+   align-self: center;
 }
 
 .supply-settings {
-   padding: 0.25em;
+   grid-area: settings;
 
-   font-size: 1em;
+   border: 1px solid gray;
+   border-top-right-radius: 6px;
+   border-bottom-right-radius: 6px;
+
+   align-self: center;
+
    text-align: center;
-   vertical-align: middle;
+   font-weight: bolder;
 
-   top: 0;
-   bottom: 0;
+   margin-left: -0.15em;
 
-   margin: auto;
-   margin-left: -25px;
-}
-
-#new-supply-button {
-   width: 15em;
-   height: 15em;
-
-   border-radius: 15em;
-   border: 2em solid #5B93E6;
-
-   margin: auto;
-   margin-top: 6em;
-}
-
-#new-supply-button p {
-   color: #5B93E6;
-   font-size: 15em;
-   text-align: center;
-   line-height: 0.675em;
+   box-shadow: -1px 0px 1px 0px #8C8C8C;
 }
